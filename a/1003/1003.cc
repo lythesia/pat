@@ -23,8 +23,8 @@ void dijkstra() {
   while(!Q.empty()) {
     pii u = Q.top(); Q.pop();
     int x = u.second;
+    if(v[x]) continue;
     for(pii &p : e[x]) {
-      if(v[x]) continue;
       int y = p.first, l = p.second, dy = d[x] + l;
       Q.push(pii{dy, y});
       if(dy < d[y]) d[y] = dy, r[y] = r[x]+t[y], c[y] = c[x];
