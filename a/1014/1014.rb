@@ -15,8 +15,8 @@ gets.split.map(&:to_i).each_with_index do |c, i|
   else
     t = queue.first
     win[t[1]], ans[i] = win[t[1]] + c, (win[t[1]] < SLIM ? win[t[1]] + c : -1)
-    # queue << [win[t[1]], t[1]]; queue.delete t  # 97 ms
-    queue = queue.drop(1) << [win[t[1]], t[1]]    # 23 ms
+    queue << [win[t[1]], t[1]]; queue.delete t  # 97 ms
+    # queue = queue.drop(1) << [win[t[1]], t[1]]  # 23 ms <- this seems to be wrong
   end
 end
 gets.split.map(&:to_i).each do |c|
