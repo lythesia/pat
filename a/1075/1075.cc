@@ -28,7 +28,7 @@ int main(int argc, const char *argv[])
     scanf("%d%d%d", &n, &i, &s);
     st[n].id = n;
     if(s != -1) st[n].pp[i] = max(st[n].pp[i], s), st[n].has = true;
-    else st[n].pp[i] = 0;
+    else if(st[n].pp[i] == -1) st[n].pp[i] = 0; // fuck this, only when old is -1, set it to 0
   }
   for(int i=1; i<=N; i++) {
     for(int j=1; j<=K; j++) {
